@@ -1,0 +1,137 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Separator from "@components/Separator.astro";
+import ContactCard from "@components/ContactCard.astro";
+---
+
+<Layout title="RevenzDev | Social">
+   <main> <section class="landing">
+    <div class="text">
+      <h1>Redes Sociales</h1>
+      <p>
+    ¿Quieres ver mis <span>redes</span>?,<span> Aqui estan</span>
+      <span>Aqui te dejo mis redes</span>
+      </p>
+     <div class="cardsz">
+
+        <ContactCard image="/assets/redes/Discord.png" tooltip="Discord" link="https://lookup.guru/847324292232380437" />
+        <ContactCard image="/assets/redes/Youtube.png" tooltip="Youtube" link="https://www.youtube.com/channel/UCVTbrI-mPcSpjryjgiMc7Jg" />
+        <ContactCard image="/assets/redes/Github.png" tooltip="Github" link="https://github.com/Reven208" />
+
+        <ContactCard image="/assets/redes/Spotify.png" tooltip="Spotify" link="https://open.spotify.com/user/31zp7fgqfxuoy4bpo7rmlsyyyiz4" />
+
+     </div>
+    </div>
+    <div class="image">
+      <img
+        src="https://japi.rest/discord/v1/user/847324292232380437/avatar"
+        alt="Avatar"
+      />
+    </div>
+  </section>
+  <Separator /></main>
+
+</Layout>
+<style>
+    .cardsz{
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:1vh;
+        align-items:center;
+    }
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 90ch;
+  }
+
+ .landing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 25vh;
+    margin-bottom: 40vh;
+  }
+
+  .text {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter";
+    width: 60%;
+    flex-wrap: wrap;
+  }
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+      text-shadow: 0 0 25px rgba(255, 255, 255, 1);
+    }
+    100% {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+  }
+  .text > h1 {
+    /* Animación para mostrar el texto poco a poco */
+    animation: glow 1s infinite;
+
+    font-size: 4vh;
+    color: var(--Selected);
+    margin: 0;
+  }
+
+  .text > p {
+    width: 100%;
+    color: var(--Unselect);
+    font-size: 2.2vh;
+  }
+  .text > p > span {
+    color: var(--Accent);
+  }
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image > img {
+    border-radius: 20%;
+    animation: moveLeftToRight 2s ease-in-out;
+  }
+  @keyframes moveLeftToRight {
+    0% {
+      transform: translateX(-100%) rotate3d(0, 0, 1, 180deg);
+    }
+    50% {
+      transform: translateX(0) rotate3d(0, 0, 1, 180deg);
+    }
+    100% {
+      transform: translateX(0) rotate3d(0, 0, 0, 0deg);
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .cardz{
+        justify-content: center;
+    }
+    .landing {
+      flex-direction: column-reverse;
+      margin-top: 0vh;
+      margin-bottom: 15vh;
+    }
+    .text {
+      margin-top: 2vh;
+      text-align: center;
+    }
+    .center {
+      margin-top: 10vh;
+    }
+  }
+</style>

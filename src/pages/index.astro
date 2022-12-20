@@ -1,0 +1,234 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Skill from "@components/SkillCard.astro";
+import Separator from "@components/Separator.astro";
+import ButtonSlash from '@components/ButtonSlash.astro';
+---
+
+<Layout title="RevenzDev">
+  <main>
+    <section class="landing">
+      <div class="text">
+        <h1>RevenzDev</h1>
+        <p>
+          Hola!, Soy <span>Revenz</span> un chico de 14 años y soy de <span
+            >Mexico</span
+          >, Me gusta la programacion, soy un <span
+            >Desarrollador Autodidacta</span
+          >, Hago algunas paginas web utilizando <span>Remix</span> o <span
+            >Astro</span
+          >, hago <span>Bots de Discord</span> utilizado <span>Node.js</span>,
+          tambien se algo de <span>C#</span>
+        </p>
+        <ButtonSlash Text="Proyectos" href="/projects" />
+      </div>
+      <div class="image">
+        <img
+          src="https://japi.rest/discord/v1/user/847324292232380437/avatar"
+          alt="Avatar"
+        />
+      </div>
+    </section>
+    <Separator />
+
+    <section class="center">
+      <div class="centerInCenter">
+        <h1 class="section-subtitle">Ski<span>lls</span></h1>
+      </div>
+      <div class="skills">
+        <Skill image="/assets/skill/html.png" tooltip="HTML" />
+        <Skill image="/assets/skill/css.png" tooltip="CSS3" />
+        <Skill image="/assets/skill/js.png" tooltip="JavaScript" />
+        <Skill image="/assets/skill/ts.png" tooltip="Typescript" />
+        <Skill image="/assets/skill/tsx.png" tooltip="React" />
+        <Skill image="/assets/skill/csharp.png" tooltip="Csharp" />
+        <Skill image="/assets/skill/xaml.png" tooltip="XAML" />
+      </div>
+      <div class="centerInCenter">
+        <h1 class="section-subtitle">Resou<span>rces</span></h1>
+      </div>
+      <div class="skills">
+        <Skill image="/assets/skill/Git.png" tooltip="Git" />
+        <Skill image="/assets/skill/npm.png" tooltip="Npm" />
+        <Skill image="/assets/skill/csproj.png" tooltip="Visual Studio" />
+        <Skill image="/assets/skill/vscode.png" tooltip="Visual Code" />
+      </div>
+      <div class="centerInCenter">
+        <h1 class="section-subtitle">Web<span>Frameworks</span></h1>
+      </div>
+      <div class="skills">
+        <Skill image="/assets/skill/astro.png" tooltip="Astro" />
+        <Skill image="/assets/skill/tsx.png" tooltip="React" />
+        <Skill image="/assets/skill/Remix.png" tooltip="Remix" />
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+ 
+  .section-title {
+    color: var(--Selected);
+    font-family: "Inter";
+  }
+  .section-subtitle {
+    color: var(--Selected);
+    font-family: "Inter";
+    font-size: 2.5vh;
+  }
+  .section-title > span {
+    color: var(--Accent);
+  }
+  .section-subtitle > span {
+    color: var(--Accent);
+  }
+  .H {
+    background-color: var(--NavBackground);
+    padding: 2vh;
+    border-radius: 1vh;
+  }
+  @keyframes move {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    from {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+  }
+
+  .center {
+    width: 100%;
+    display: flex;
+    opacity: 0;
+
+    justify-content: left;
+    flex-direction: column;
+    transition: all linear 300ms;
+  }
+  .center.active {
+    animation: move 2s;
+    opacity: 1;
+  }
+
+  .centerInCenter {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+  }
+
+  .skills {
+    gap: 1vh;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 90ch;
+  }
+
+  .landing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 25vh;
+    margin-bottom: 40vh;
+  }
+
+  .text {
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter";
+    width: 60%;
+    flex-wrap: wrap;
+    text-align: initial;
+  }
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+      text-shadow: 0 0 25px rgba(255, 255, 255, 1);
+    }
+    100% {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+  }
+  .text > h1 {
+    /* Animación para mostrar el texto poco a poco */
+    animation: glow 1s infinite;
+
+    font-size: 4vh;
+    color: var(--Selected);
+    margin: 0;
+  }
+
+  .text > p {
+    width: 100%;
+    color: var(--Unselect);
+    font-size: 2.2vh;
+  }
+  .text > p > span {
+    color: var(--Accent);
+  }
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image > img {
+    border-radius: 20%;
+    animation: moveLeftToRight 2s ease-in-out;
+  }
+  @keyframes moveLeftToRight {
+    0% {
+      transform: translateX(-100%) rotate3d(0, 0, 1, 180deg);
+    }
+    50% {
+      transform: translateX(0) rotate3d(0, 0, 1, 180deg);
+    }
+    100% {
+      transform: translateX(0) rotate3d(0, 0, 0, 0deg);
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .landing {
+      flex-direction: column-reverse;
+      margin-top: 0vh;
+      margin-bottom: 15vh;
+    }
+    .text {
+      margin-top: 2vh;
+      text-align: center;
+    }
+    .center {
+      margin-top: 10vh;
+    }
+  }
+</style>
+<script>
+  function animate(element: any, className: string) {
+    // Añade o elimina la clase en función de si el elemento está en la pantalla
+    if (element.getBoundingClientRect().top < window.innerHeight) {
+      element.classList.add(className);
+    }
+  }
+
+  window.addEventListener("scroll", function () {
+    animate(document.querySelector(".center"), "active");
+  });
+</script>

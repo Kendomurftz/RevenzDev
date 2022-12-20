@@ -1,0 +1,57 @@
+---
+export interface Props {
+  tooltip: string;
+  image: string;
+  link: string;
+}
+
+const { tooltip, image , link } = Astro.props;
+---
+<a lass="Red-Card" target="_blank" href={link}>
+  <div class="Red-Card" data-tooltip={tooltip}>
+  <img src={image} alt="" />
+</div></a>
+
+
+<style>
+  .Red-Card {
+    width: 10vh;
+  }
+
+  img {
+    width: 45%;
+        background-color: rgba(33,33,33,100);
+        padding: 1vh;
+    border-radius: 1vh;
+  }
+
+  [data-tooltip]:before {
+    /* needed - do not touch */
+    content: attr(data-tooltip);
+    position: absolute;
+    opacity: 0;
+
+    /* customizable */
+    font-family: "Inter";
+    font-size: 2vh;
+    transition: all 0.15s ease;
+    padding: 10px;
+    color: rgb(156, 156, 156);
+    border-radius: 1vh;
+  }
+
+  [data-tooltip]:hover:before {
+    /* needed - do not touch */
+    opacity: 1;
+
+    /* customizable */
+    background: var(--NavBackground);
+    border: 1px solid var(--Accent);
+    margin-top: -50px;
+    margin-left: 20px;
+  }
+
+  [data-tooltip]:not([data-tooltip-persistent]):before {
+    pointer-events: none;
+  }
+</style>

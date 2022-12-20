@@ -1,0 +1,125 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+	<link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet" />
+<link
+  href="https://fonts.googleapis.com/css?family=Arapey|Cantarell|Comfortaa|Khand|Russo+One|Ubuntu"
+  rel="stylesheet"
+/>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <img src="/assets/icon.png" alt="" class="logo" />
+        <div class="sections">
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/projects">Proyectos</a></li>
+            <li><a href="/social">Redes</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <slot />
+	<footer>
+		<p>Hecho con <span>😺❤️</span> por Revenz <span class="fmwk">(Framework: Astro)</span></p>
+	</footer>
+  </body>
+</html>
+<style>
+	footer{
+		padding: 5vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: var(--Unselect);
+		font-family: 'Cantarell';
+		background-color: var(--NavBackground);
+	}
+	footer > p > .fmwk{
+		color: var(--Accent)
+
+	}
+	
+  header {
+    margin-top: 2vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+   @keyframes move {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    border-radius: 1vh;
+    padding: 1vh;
+    background-color:var(--NavBackground);
+	animation: move 1s;
+  }
+  .navbar > img {
+    width: 3vh;
+    margin-left: 2vh;
+  }
+  .navbar > .sections > ul {
+    gap: 3vh;
+    margin-right: 2vh;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar > .sections > ul > li > a {
+    text-decoration: none;
+	font-family: 'Inter';
+    color: var(--Unselect)
+  }
+  .navbar > .sections > ul > li > a:hover {
+    text-decoration: none;
+    color: var(--Selected)
+  }
+  @media only screen and (max-width: 600px) {
+	.navbar{
+		width: 80%;
+	}
+  }
+</style>
+<style is:global>
+  :root {
+	--Accent:  rgb(221, 114, 95);
+    --NavBackground: rgba(26, 26, 26, 0.8);
+	--Background: rgb(23, 23, 23);
+	--Unselect: rgba(200, 200, 200, 0.8);
+    --Selected:rgba(200, 200, 200, 1);
+  }
+  body {
+    background-color: rgb(23, 23, 23);
+    margin: 0;
+  }
+  
+</style>

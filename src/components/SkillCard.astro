@@ -1,0 +1,54 @@
+---
+export interface Props {
+  tooltip: string;
+  image: string;
+}
+
+const { tooltip, image } = Astro.props;
+---
+
+<div class="skill-card" data-tooltip={tooltip}>
+  <img src={image} alt="" />
+</div>
+
+<style>
+  .skill-card {
+    width: 8vh;
+  }
+
+  img {
+    width: 100%;
+    background-color: var(--NavBackground);
+    border-radius: 1vh;
+  }
+
+  [data-tooltip]:before {
+    /* needed - do not touch */
+    content: attr(data-tooltip);
+    position: absolute;
+    opacity: 0;
+
+    /* customizable */
+    font-family: "Inter";
+    font-size: 2vh;
+    transition: all 0.15s ease;
+    padding: 10px;
+    color: rgb(156, 156, 156);
+    border-radius: 1vh;
+  }
+
+  [data-tooltip]:hover:before {
+    /* needed - do not touch */
+    opacity: 1;
+
+    /* customizable */
+    background: var(--NavBackground);
+    border: 1px solid var(--Accent);
+    margin-top: -50px;
+    margin-left: 20px;
+  }
+
+  [data-tooltip]:not([data-tooltip-persistent]):before {
+    pointer-events: none;
+  }
+</style>

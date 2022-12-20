@@ -1,0 +1,93 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Card from "@components/ProyectCard.astro";
+---
+
+<Layout title="RevenzDev | Proyects">
+
+    <section class="centerr">
+         
+<div class="centerInCenter">
+    <h1 class="section-subtitle">Pag<span>inas</span></h1>
+  </div>
+<div class="Items">
+<Card titulo="Twenty Shop" descripcion="Pagina para un persona que optimiza pc's"  link="https://twentyshop.vercel.app"  />
+<Card titulo="TGX" descripcion="Una pagina de un exploit de roblox dark design" link="https://tgx.vercel.app"  />
+<Card titulo="TGX FIX" descripcion="Una pagina de soluciones de un exploit" link="https://tgxgang.vercel.app"  />
+
+<Card titulo="Logo PornHub" descripcion="Crea un logo personalizado al estilo Pornhub"  link="https://phlogo.vercel.app"  />
+<Card titulo="Portafolio" descripcion="Un portafolio que tenia antes de este jaja" link="https://revenz.vercel.app"  />
+<Card titulo="GayCN" descripcion="Pagina que genera un % random de lo gay que eres" link="https://gaycn.vercel.app"  />
+<Card titulo="Mixwell" descripcion="Pagina que genera un % random de lo Mixwell que eres" link="https://Mixwell.vercel.app"  />
+
+</div>     
+  
+	</section>
+</Layout>
+<style>
+ .Items {
+  display: flex;
+    flex-direction: row;
+    gap: 2vh;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    padding: 2vh;
+    height: 100%;
+  }
+
+
+ .centerr {
+    width: 100%;
+
+    margin-bottom: 11.6vh;    display: flex;
+flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: move 0.5s linear;
+  }
+
+@keyframes move {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    from {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+  }
+
+.section-title {
+    color: var(--Selected);
+    font-family: "Ubuntu";
+    font-size:  2rem;
+  }
+  .section-subtitle {
+    color: var(--Selected);
+    font-family: "Ubuntu";
+    font-size: 3.5vh;
+  }
+  .section-title > span {
+    color: var(--Accent);
+  }
+  .section-subtitle > span {
+    color: var(--Accent);
+  }
+  .H {
+    background-color: var(--NavBackground);
+    padding: 2vh;
+    border-radius: 1vh;
+  }
+  .centerInCenter {
+
+    width: 80%;
+    display: flex;
+    justify-content: center;
+
+  }
+
+
+
+  </style>
